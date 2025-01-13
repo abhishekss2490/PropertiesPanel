@@ -92,7 +92,7 @@
   display: flex;
 }
 
-.draggable-input-group input[type="number"] {
+.draggable-input-group input[type="text"] {
   flex: 1;
   min-width: 0;
   background-color: #1a1a1a;
@@ -115,18 +115,18 @@
   appearance: textfield;
 }
 
-.draggable-input-group input[type="number"]::-webkit-outer-spin-button,
+/* .draggable-input-group input[type="number"]::-webkit-outer-spin-button,
 .draggable-input-group input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
+} */
 
-.draggable-input-group input[type="number"]:hover {
+.draggable-input-group input[type="text"]:hover {
   border-color: #4d4d4d;
   background-color: #222222;
 }
 
-.draggable-input-group input[type="number"]:focus {
+.draggable-input-group input[type="text"]:focus {
   outline: none;
   border-color: #8ab4f8;
   background-color: #262626;
@@ -134,29 +134,29 @@
   z-index: 1;
 }
 
-.draggable-input-group input[type="number"].dragging {
+.draggable-input-group input[type="text"].dragging {
   background-color: #2a2a2a;
   border-color: #8ab4f8;
   box-shadow: 0 0 0 1px #8ab4f8;
   cursor: ew-resize !important;
 }
 
-.draggable-input-group input[type="number"].focused {
+.draggable-input-group input[type="text"].focused {
   background-color: #262626;
   border-color: #8ab4f8;
   box-shadow: 0 0 0 1px #8ab4f8;
 }
 
 /* Specific styles for different input types */
-.draggable-input-group input[type="number"].input-position {
+.draggable-input-group input[type="text"].input-position {
   border-left: 2px solid #4a9eff;
 }
 
-.draggable-input-group input[type="number"].input-rotation {
+.draggable-input-group input[type="text"].input-rotation {
   border-left: 2px solid #ff4a9e;
 }
 
-.draggable-input-group input[type="number"].input-scale {
+.draggable-input-group input[type="text"].input-scale {
   border-left: 2px solid #4aff9e;
 }
 
@@ -233,7 +233,7 @@
 
 /* Touch device optimizations */
 @media (pointer: coarse) {
-  .draggable-input-group input[type="number"] {
+  .draggable-input-group input[type="text"] {
     font-size: 16px;
     padding: 8px;
   }
@@ -245,15 +245,18 @@
 }
 
 /* High contrast focus indicators for accessibility */
-.draggable-input-group input[type="number"]:focus-visible {
+.draggable-input-group input[type="text"]:focus-visible {
   outline: 2px solid #8ab4f8;
   outline-offset: 1px;
 }
 
 /* Hardware acceleration for smooth animations */
 .properties-panel,
-.draggable-input-group input[type="number"] {
+.draggable-input-group input[type="text"] {
   backface-visibility: hidden;
   perspective: 1000;
   transform-style: preserve-3d;
 }
+
+
+
