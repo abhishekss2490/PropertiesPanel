@@ -519,13 +519,14 @@ const App = () => {
     rotation: { x: 0, y: 0, z: 0 },
     scale: { x: 1, y: 1, z: 1 },
   });
+  const [controlsReady, setControlsReady] = useState(false);
 
   // In App component, modify the useEffect for transform controls:
   useEffect(() => {
-    if (transformControlRef.current) {
-      const controls = transformControlRef.current;
+    const controls = transformControlRef.current;
+    if (controls) {
       controls.setMode(mode);
-      
+
       const handleChange = () => {
         if (meshRef.current) {
           const { position, rotation, scale } = meshRef.current;
@@ -567,7 +568,7 @@ const App = () => {
         controls.removeEventListener('change', handleChange);
       };
     }
-  }, [mode]);
+  }, [mode, controlsReady]);
 
   useEffect(() => {
     if (meshRef.current) {
@@ -598,7 +599,10 @@ const App = () => {
             <directionalLight position={[5, 5, 5]} intensity={1.5} />
 
             <TransformControls
-              ref={transformControlRef}
+              ref={(node) => {
+                transformControlRef.current = node;
+                setControlsReady(!!node); // This triggers when controls mount/unmount
+              }}
               object={meshRef.current}
               mode={mode}
               onMouseDown={() => setControlsEnabled(false)}
